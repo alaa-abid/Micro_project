@@ -1,16 +1,17 @@
-package modele;
+package Models;
 
-public class Clients {
-	
-	
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
+public class Clients {		
 	public Clients(String nom, String prenom, String adresse, String email, String motpasse) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
 		this.email = email;
-		
-		
 		this.motpasse = motpasse;
 	}
 	public Clients() {
@@ -46,10 +47,18 @@ public class Clients {
 	public static String getMotpasse() {
 		return motpasse;
 	}
+	public static int getId() {
+		return id;
+	}
+	public static void setId(int id) {
+		Clients.id = id;
+	}
 	public void setMotpasse(String motpasse) {
 		this.motpasse = motpasse;
 	}
-
+	@Id
+	@GeneratedValue( strategy = GenerationType.AUTO )
+    private static int id;
 	private  static String nom;
 	private static String prenom;
 	private static String adresse;

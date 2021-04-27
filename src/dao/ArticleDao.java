@@ -11,10 +11,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import modele.Articles;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import Models.Articles;
 
 public class ArticleDao {
-	static Connection connection= null;
+	/*static Connection connection= null;
 	public static void connect() throws SQLException {
         
             try {
@@ -75,6 +80,20 @@ public class ArticleDao {
 	        statement.close();
 	         
 	        return article;
-	    }
-
+	    }*/
+	public static void main( String[ ] args ) 
+	{
+	EntityManagerFactory emfactory = Persistence
+			.createEntityManagerFactory( "Micro_Project2" );
+	EntityManager entitymanager = emfactory.
+			createEntityManager();
+	Query query = entitymanager.createNamedQuery("find article by categorie");
+	List<Articles> list = query.getResultList( );
+    
+    for( Articles e:list ){
+       System.out.print("Article code :" + e.getCodearticle( ));
+       System.out.println("\t Article stock :" + e.getStock());
+    }
+ }
+	
 }

@@ -7,7 +7,7 @@
 <title>S'identifier</title>
 </head>
 <body>
-  <form action="<%=request.getContextPath() %>/Client2Servlet" method="post">
+  <form action="<%=request.getContextPath() %>/sidentifier" method="post">
     <label>Email</label>
     <input type="email" name="email" value=""  ><br>    
     <label>Mot de passe</label>

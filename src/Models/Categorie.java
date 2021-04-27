@@ -1,5 +1,9 @@
-package modele;
+package Models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Categorie {
 	
   public Categorie(String categorie, int refcat) {
@@ -27,6 +31,7 @@ public String getCategorie() {
 	
 	
   private String categorie;
+  @Id
   private int refcat;
   
 }

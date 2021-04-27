@@ -1,5 +1,13 @@
-package modele;
+package Models;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+//import javax.persistence.GenerationType;
 
+
+@Entity
+@NamedQuery(query = "Select e from article e where e.categorie = :categorie")
 public class Articles {
 	
 	
@@ -71,7 +79,7 @@ public class Articles {
 
 
 
-
+    @Id
 	private int codearticle;
 	private int prix;
 	private int stock;

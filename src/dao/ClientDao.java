@@ -1,7 +1,5 @@
 package dao;
 
-import modele.Clients;
-
 import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,9 +7,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import Models.Clients;
+
 
 public class ClientDao {
-	 int resultat = 0;
+	/* int resultat = 0;
 	 public  int registerClient (Clients client) throws ClassNotFoundException {
 		 String INSERT_USERS_SQL ="INSERT INTO clients" +"(nom,prenom,email,adresse,motpasse) values" +"(?,?,?,?,?);";				 		 		 						
 		try {		Class.forName("com.mysql.cj.jdbc.Driver");	 
@@ -53,6 +57,27 @@ public class ClientDao {
 	        	e.printStackTrace();
 	        }
 	        return status;
-	    }
+	    }*/
+	public static void main( String[ ] args ) 
+	{
+		EntityManagerFactory emfactory = Persistence.
+				createEntityManagerFactory( "Micro_Project2" );
+		EntityManager entitymanager = emfactory.
+				createEntityManager( );
+		entitymanager.getTransaction( ).begin( );
+		
+		Clients clt = new Clients( ); 
+		
+		clt.setNom( "" );
+		clt.setAdresse("");
+		clt.setPrenom( "" );
+		clt.setEmail("");
+		clt.setMotpasse("");
+		entitymanager.persist( clt );
+		entitymanager.getTransaction( ).commit( );
+		
+		entitymanager.close( );
+		emfactory.close( );
+		}
 
 }

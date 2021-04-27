@@ -1,4 +1,4 @@
-package modele;
+package Models;
 
 public class lignescommande {
 	

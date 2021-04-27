@@ -1,6 +1,7 @@
-package controller;
+package Controller;
 
 import java.io.IOException;
+
 
 
 import javax.servlet.RequestDispatcher;
@@ -10,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Models.Clients;
 import dao.ClientDao;
-import modele.Clients;
 
 /**
  * Servlet implementation class Client
@@ -63,9 +64,9 @@ public class ClientServlet extends HttpServlet {
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			//RequestDispatcher dispatcher= request.getRequestDispatcher("acceuilSE.jsp");
-		//dispatcher.forward(request, response);
-			response.sendRedirect("acceuilSE.jsp");
+			RequestDispatcher dispatcher= request.getRequestDispatcher("/acceuilSE.jsp");
+		dispatcher.forward(request, response);
+			//response.sendRedirect("acceuilSE.jsp");
 		}
 		
 		//String url="acceuil1.jsp";
